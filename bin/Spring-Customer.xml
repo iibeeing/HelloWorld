@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="customerService" class="com.spring.CustomerService">
+		<property name="name" value="YiiBaii Mook Kim" />
+		<property name="url" value="http://www.yiibai.com" />
+	</bean>
+	
+	<bean id="hijackBeforeMethodBean" class="com.spring.aop.HijackBeforeMethod" />
+	
+	<bean id="customerServiceProxy" class="com.spring.aop.HijackBeforeMethod">
+		<property name="target" ref="customerService" />
+		<property name="interceptorNames">
+			<list>
+				<value>hijackBeforeMethodBean</value>
+			</list>
+		</property>
+	</bean>
+</beans>

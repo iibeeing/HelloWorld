@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.6.0_10"/>
+	<classpathentry kind="lib" path="D:/mycloud/workspace/java-workspace/czzsb/root/WEB-INF/lib/commons-codec-1.10.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Aop"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Dbcp"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring4.2"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SqlDriver"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Slf4j"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/CGlib"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Mysql-jdbc"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
