@@ -2,7 +2,6 @@ package com.hibernate.v4;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -19,18 +18,23 @@ public class UserHibernateWithTransManagerService {
     private HibernateTemplate hibernateTemplate;
 
     public void addScore(String userName,int toAdd){
+    	Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
+    	System.out.println(" FlushMode -> " + session.getFlushMode());
         User user = hibernateTemplate.get(User.class,userName);
         user.setScore(user.getScore()+toAdd);
-        //hibernateTemplate.getSessionFactory().getCurrentSession() 会报错，线程不同步？
-        //使用hibernateTemplate.update(user); 会失败，说是FlushMode有问题，要改成FlushMode.COMMIT OR AUTO
-        //也许是hibernate 版本的问题，可以试试hibernate3.0
-        Session session = hibernateTemplate.getSessionFactory().openSession();
-        //session.setFlushMode(FlushMode.COMMIT);
-        //在无事务上下文的环境下，显式调用update将即时向数据库发送SQL
-        Transaction tx=session.beginTransaction();
-        session.update(user);
-        tx.commit();
-        //hibernateTemplate.update(user);
+        /*hibernateTemplate.getSessionFactory().getCurrentSession() 会报错，线程不同步？
+        getCurrentSession() 自动绑定线程而 openSession()不会绑定
+        使用hibernateTemplate.update(user); 会失败，说是FlushMode有问题，要改成FlushMode.COMMIT OR AUTO
+        原因是hibernate 版本的问题，
+        -- 如果采用的时Hibernate4，使用getCurrentSession()必须配置事务，否则无法取到session -- 
+        可以试试hibernate3.0*/
+        //Session session = hibernateTemplate.getSessionFactory().openSession();
+        /*session.setFlushMode(FlushMode.COMMIT);
+        在无事务上下文的环境下，显式调用update将即时向数据库发送SQL*/
+        //Transaction tx=session.beginTransaction();
+        //session.update(user);
+        //tx.commit();
+        hibernateTemplate.update(user);
     }
 
     public static void main(String[] args) {
