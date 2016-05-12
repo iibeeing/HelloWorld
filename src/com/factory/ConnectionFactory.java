@@ -1,9 +1,9 @@
 /**   
 * @Title: ConnectionFactory.java 
 * @Package com.factory 
-* @Description: TODO(ÓÃÒ»¾ä»°ÃèÊö¸ÃÎÄ¼ş×öÊ²Ã´) 
+* @Description: TODO(ï¿½ï¿½Ò»ï¿½ä»°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê²Ã´) 
 * @author Bee
-* @date 2016-3-18 ÏÂÎç2:55:40 
+* @date 2016-3-18 ï¿½ï¿½ï¿½ï¿½2:55:40 
 * @version V1.0   
 */ 
 package com.factory;
@@ -13,16 +13,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-/**   
- * ÀàÃû³Æ£ºConnectionFactory   
- * ÀàÃèÊö£º   
- * ´´½¨ÈË£ºBee   
- * ´´½¨Ê±¼ä£º2016-3-18 ÏÂÎç2:55:40   
- * ĞŞ¸ÄÈË£ºBee   
- * ĞŞ¸ÄÊ±¼ä£º2016-3-18 ÏÂÎç2:55:40   
- * ĞŞ¸Ä±¸×¢£º   
- * @version    
- */
+
 public class ConnectionFactory {
 	private static final String URL = "jdbc:mysql://127.0.0.1:3306/e001";
 	private static final String USER = "root";
