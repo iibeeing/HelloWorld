@@ -15,10 +15,15 @@ import java.sql.Statement;
 
 
 public class ConnectionFactory {
-	private static final String URL = "jdbc:mysql://127.0.0.1:3306/e001";
+/*	private static final String URL = "jdbc:mysql://127.0.0.1:3306/e001";
 	private static final String USER = "root";
 	private static final String PASSWORD = "cccccc";
-	private static final String DRIVER = "com.mysql.jdbc.Driver";
+	private static final String DRIVER = "com.mysql.jdbc.Driver";*/
+	
+	private static final String URL = "jdbc:sqlserver://localhost:1433;DatabaseName=test";
+	private static final String USER = "sa";
+	private static final String PASSWORD = "cccccc";
+	private static final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	
 	public static void close(Connection conn,Statement stm,ResultSet rs){
 		try{
