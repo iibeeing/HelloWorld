@@ -1,0 +1,5 @@
+[framework] 2016-05-16 11:08:29,805 - com.log4j.SystemOutLog -1    [main] INFO com.log4j.SystemOutLog  - 测试log4j
+[framework] 2016-05-16 11:08:29,805 - SystemOut -1    [main] DEBUGSystemOut  - zhujiadun
+[framework] 2016-05-16 11:08:29,805 - SystemOut -1    [main] DEBUGSystemOut  - 在测试log4j配置stdout
+[framework] 2016-05-16 11:08:29,805 - SystemOut -1    [main] DEBUGSystemOut  - e is / by zero
+[framework] 2016-05-16 11:08:29,806 - SystemOut -2    [main] DEBUGSystemOut  - ln e is / by zero

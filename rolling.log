@@ -1,0 +1,1 @@
+[framework] 2016-05-16 10:42:51,991 - com.log4j.TestLog4j_1 -688 [main] ERROR com.log4j.TestLog4j_1  - e is / by zero
