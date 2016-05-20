@@ -27,7 +27,7 @@ public class TestCzzsbMaxClients {
 		long a = System.currentTimeMillis();
 		//线程跟本机的配置有关系，本机4G内存，2000多点就不行了，如果是20G内存，则跑到10000都没问题
         //ThreadDemo[] td = new ThreadDemo[6000];
-		ThreadDemo[] td = new ThreadDemo[2];
+		ThreadDemo[] td = new ThreadDemo[2000];
         for(int i=0;i<td.length;i++){
             td[i] = new ThreadDemo(i,a);
         }
@@ -57,12 +57,14 @@ public class TestCzzsbMaxClients {
             int request_reject = 0;
             URL url;
             //i 如果设置的太小，线程很快就完成了，并发量就可能达不到高度
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 10000; i++) {
                 try {
 //                    url = new URL("http://ip:8080/Project1/test.jsp");
 //                	url = new URL("http://10.30.215.115:7777/");
 //                	url = new URL("http://61.128.226.200:81/");
-                	url = new URL("http://192.168.4.50:81/");
+                	//自考
+                	//url = new URL("http://61.128.226.207:80/");
+                	url = new URL("http://61.161.82.38:80/");
                 	
                 	//读取该url的内容，如果是html则就从<html 开始直到该页面读取完，即</html>
                     InputStream is = url.openStream();
