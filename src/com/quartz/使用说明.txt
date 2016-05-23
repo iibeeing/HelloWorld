@@ -1,0 +1,55 @@
+特别注意版本区别，不同版本代码差异较大
+关于Quartz：http://www.quartz-scheduler.org/
+
+1、Job接口：该接口只有一个方法
+
+void execute(JobExecutionContext context)
+开发者实现该接口定义需要执行的任务。JobExecutionContext类提供调度上下文的各种信息
+
+2、JobDetail：用于描叙Job实现类及其他的一些静态信息
+
+3、Trigger：描叙触发Job执行的时间触发规则
+
+4、Calendar
+
+5、Scheduler：运行容器，使用SchedulerFactory创建Scheduler实例
+
+6、More...
+
+代码示例：
+
+1、使用Quartz，需要实现Job接口；
+
+public class TestJob implements Job {
+    public void execute(JobExecutionContext context) throws JobExecutionException {
+        System.out.println("Hello World! - " + new Date());
+        //do more...
+    }
+}
+2、调度【比较简单，直接看代码就可以了】
+
+public class quartzTest {
+    public static void main(String args[]) throws SchedulerException, ParseException {
+        JobDetail jobDetail= JobBuilder.newJob(TestJob.class)
+                .withIdentity("testJob_1","group_1")
+                .build();
+
+        Trigger trigger= TriggerBuilder
+                .newTrigger()
+                .withIdentity("trigger_1","group_1")
+                .startNow()
+                .withSchedule(SimpleScheduleBuilder.simpleSchedule()
+                        .withIntervalInSeconds(10) //时间间隔
+                        .withRepeatCount(5)        //重复次数(将执行6次)
+                        )
+                .build();
+        SchedulerFactory sf = new StdSchedulerFactory();
+        Scheduler sched = sf.getScheduler();
+
+        sched.scheduleJob(jobDetail,trigger);
+
+        sched.start();
+
+    }
+}
+这里使用的是2.2.1版本，参考官方文档的示例。看到一些参考书使用的版本比较老，所以会有一些出入，很多方法都被弃用了，所以还是直接看文档比较实在。
