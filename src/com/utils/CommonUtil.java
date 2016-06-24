@@ -113,6 +113,20 @@ public class CommonUtil {
 	}
 	
 	/**
+	 * 取得长的(包含时分秒)时间.
+	 * @return
+	 */
+	public static String getDateLong2() {
+		DateFormat df  = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+		Calendar   calendar=Calendar.getInstance();   
+	    calendar.setTime(new Date()); 
+	    String time = df.format(calendar.getTime());
+	    df = null;
+	    calendar = null;
+		return time;
+	}
+	
+	/**
 	 * 取得加了一天的长的(包含时分秒)时间.(就是这样yyyy-MM-dd 23:59:59)
 	 * @return
 	 */

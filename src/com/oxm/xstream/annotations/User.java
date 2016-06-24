@@ -4,9 +4,6 @@ package com.oxm.xstream.annotations;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
-
-import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
@@ -36,7 +33,7 @@ public class User {
 	private Date lastVisit;
 
 	@XStreamImplicit
-	private List logs;
+	private List<LoginLog> logs;
 
 	public int getUserId() {
 		return userId;

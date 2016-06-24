@@ -1,9 +1,9 @@
 /**   
 * @Title: TestRollback.java 
 * @Package com.transaction 
-* @Description: TODO(ÓÃÒ»¾ä»°ÃèÊö¸ÃÎÄ¼ş×öÊ²Ã´) 
+* @Description: TODO(ç”¨ä¸€å¥è¯æè¿°è¯¥æ–‡ä»¶åšä»€ä¹ˆ) 
 * @author Bee
-* @date 2016-3-18 ÏÂÎç2:50:11 
+* @date 2016-3-18 ä¸‹åˆ2:50:11 
 * @version V1.0   
 */ 
 package com.transaction;
@@ -15,14 +15,15 @@ import org.junit.Test;
 
 import com.factory.ConnectionFactory;
 
+
 /**   
- * ÀàÃû³Æ£ºTestRollback   
- * ÀàÃèÊö£º   
- * ´´½¨ÈË£ºBee   
- * ´´½¨Ê±¼ä£º2016-3-18 ÏÂÎç2:50:11   
- * ĞŞ¸ÄÈË£ºBee   
- * ĞŞ¸ÄÊ±¼ä£º2016-3-18 ÏÂÎç2:50:11   
- * ĞŞ¸Ä±¸×¢£º   
+ * ç±»åç§°ï¼šTestRollback   
+ * ç±»æè¿°ï¼š   
+ * åˆ›å»ºäººï¼šBee   
+ * åˆ›å»ºæ—¶é—´ï¼š2016-3-18 ä¸‹åˆ2:50:11   
+ * ä¿®æ”¹äººï¼šBee   
+ * ä¿®æ”¹æ—¶é—´ï¼š2016-3-18 ä¸‹åˆ2:50:11   
+ * ä¿®æ”¹å¤‡æ³¨ï¼š   
  * @version    
  */
 public class TestRollback {
@@ -35,7 +36,7 @@ public class TestRollback {
 		ResultSet rs = null;
 		try{
 			con = ConnectionFactory.getConnection();
-			//ÉèÖÃÊÖ¶¯Ìá½»
+			//è®¾ç½®æ‰‹åŠ¨æäº¤
 			con.setAutoCommit(false);
 			StringBuffer sql = new StringBuffer();
 			sql.append(" select total ");
@@ -61,7 +62,7 @@ public class TestRollback {
 				int isUpdate1 = pstm.executeUpdate();
 				
 				if(isUpdate1 > 0){
-					System.out.println("jack ÕË»§¿Û¿î³É¹¦£¬½»Ò×½áÊø ............................");
+					System.out.println("jack è´¦æˆ·æ‰£æ¬¾æˆåŠŸï¼Œäº¤æ˜“ç»“æŸ ............................");
 					StringBuffer updateB = new StringBuffer();
 					updateB.append(" update td_account ");
 					updateB.append(" set total = total + ? ");
@@ -73,21 +74,21 @@ public class TestRollback {
 					int isUpdate2 = pstm.executeUpdate();
 					System.out.println(updateB.toString());
 					if(isUpdate2 > 0){
-						System.out.println("mary ÕË»§ÊÕµ½»ã¿î£¬½»Ò×½áÊø ............................");
+						System.out.println("mary è´¦æˆ·æ”¶åˆ°æ±‡æ¬¾ï¼Œäº¤æ˜“ç»“æŸ ............................");
 					}else{
-						System.out.println("mary ÕË»§×ªÕËÎ´³É¹¦.............................");
+						System.out.println("mary è´¦æˆ·è½¬è´¦æœªæˆåŠŸ.............................");
 					}
 				}else{
-					System.out.println("jack ÕË»§×ªÕËÎ´³É¹¦.............................");
+					System.out.println("jack è´¦æˆ·è½¬è´¦æœªæˆåŠŸ.............................");
 				}
 			}else{
-				System.out.println(" Óà¶î²»×ã£¬½»Ò×È¡Ïû............................");
+				System.out.println(" ä½™é¢ä¸è¶³ï¼Œäº¤æ˜“å–æ¶ˆ............................");
 			}
 			con.commit();
 		}catch (Exception e) {
 			e.printStackTrace();
 			try{
-				System.out.println(" ½»Ò×Ê§°Ü£¬²Ù×÷»Ø¹ö............................");
+				System.out.println(" äº¤æ˜“å¤±è´¥ï¼Œæ“ä½œå›æ»š............................");
 				con.rollback();
 			}catch (Exception e2) {
 				e2.printStackTrace();
