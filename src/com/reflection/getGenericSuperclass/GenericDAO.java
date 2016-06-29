@@ -12,6 +12,8 @@ public class GenericDAO<T> {
 		System.out.println(clazz);
 		Type type = clazz.getGenericSuperclass();
 		System.out.println(type);
+		//ParameterizedType参数化类型，即泛型  
+		//getActualTypeArguments获取参数化类型的数组，泛型可能有多个  
 		Type [] types = ((ParameterizedType) type).getActualTypeArguments();
 		System.out.println(types);
 		Type trueType = types[0];
