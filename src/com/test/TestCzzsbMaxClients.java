@@ -63,10 +63,10 @@ public class TestCzzsbMaxClients {
 //                	url = new URL("http://10.30.215.115:7777/");
 //                	url = new URL("http://61.128.226.200:81/");
                 	//自考
-                	//url = new URL("http://61.128.226.207:80/");
+                	url = new URL("http://61.128.226.207:80/");
                 	//url = new URL("http://61.161.82.38:80/");
                 	//普招志愿
-                	url = new URL("http://192.168.4.161/gkzy/index.jsp");
+                	//url = new URL("http://192.168.4.161/gkzy/index.jsp");
                 	
                 	//读取该url的内容，如果是html则就从<html 开始直到该页面读取完，即</html>
                     InputStream is = url.openStream();
